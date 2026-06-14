@@ -15,4 +15,8 @@ elif [ "$1" == "--help" ]; then
     echo "--date           - wyswietla aktualna date"
     echo "--logs [liczba]  - tworzy podana liczbe plikow log (domyslnie 100)"
     echo "--help           - wyswietla te pomoc"
+elif [ "$1" == "--init" ]; then
+    git clone <URL_TWOJEGO_REPOZYTORIUM> .
+    export PATH="$PATH:$(pwd)"
+    echo "Repozytorium sklonowane, dodano $(pwd) do PATH."
 fi
