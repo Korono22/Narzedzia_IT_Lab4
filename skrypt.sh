@@ -15,6 +15,8 @@ elif [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
     echo "--date, -d           - wyswietla aktualna date"
     echo "--logs, -l [liczba]  - tworzy podana liczbe plikow log (domyslnie 100)"
     echo "--help, -h           - wyswietla te pomoc"
+    echo "--init               - klonuje repozytorium i dodaje je do PATH"
+    echo "--error, -e [liczba] - tworzy podana liczbe plikow z bledami (domyslnie 100)"
 elif [ "$1" == "--init" ]; then
     git clone <URL_TWOJEGO_REPOZYTORIUM> .
     export PATH="$PATH:$(pwd)"
