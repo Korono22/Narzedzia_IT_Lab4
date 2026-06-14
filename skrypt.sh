@@ -6,10 +6,13 @@ elif [ "$1" == "--logs" ]; then
     if [ -n "$2" ] && [[ "$2" =~ ^[0-9]+$ ]]; then
         count=$2
     fi
-
-    for ((i=1; i<=count; i++))
-    do
+    for ((i=1; i<=count; i++)); do
         filename="log${i}.txt"
         echo -e "Nazwa pliku: $filename\nNazwa skryptu: $0\nData: $(date)" > $filename
     done
+elif [ "$1" == "--help" ]; then
+    echo "Dostepne opcje:"
+    echo "--date           - wyswietla aktualna date"
+    echo "--logs [liczba]  - tworzy podana liczbe plikow log (domyslnie 100)"
+    echo "--help           - wyswietla te pomoc"
 fi
