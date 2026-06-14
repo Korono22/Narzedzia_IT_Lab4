@@ -19,4 +19,14 @@ elif [ "$1" == "--init" ]; then
     git clone <URL_TWOJEGO_REPOZYTORIUM> .
     export PATH="$PATH:$(pwd)"
     echo "Repozytorium sklonowane, dodano $(pwd) do PATH."
+elif [ "$1" == "--error" ] || [ "$1" == "-e" ]; then
+    count=100
+    if [ -n "$2" ] && [[ "$2" =~ ^[0-9]+$ ]]; then
+        count=$2
+    fi
+    for ((i=1; i<=count; i++)); do
+        mkdir -p "error${i}"
+        filename="error${i}/error${i}.txt"
+        echo -e "Blad nr: $i\nSkrypt: $0\nData: $(date)" > $filename
+    done
 fi
