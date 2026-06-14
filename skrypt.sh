@@ -1,7 +1,7 @@
 #!/bin/bash
-if [ "$1" == "--date" ]; then
+if [ "$1" == "--date" ] || [ "$1" == "-d" ]; then
     date
-elif [ "$1" == "--logs" ]; then
+elif [ "$1" == "--logs" ] || [ "$1" == "-l" ]; then
     count=100
     if [ -n "$2" ] && [[ "$2" =~ ^[0-9]+$ ]]; then
         count=$2
@@ -10,11 +10,11 @@ elif [ "$1" == "--logs" ]; then
         filename="log${i}.txt"
         echo -e "Nazwa pliku: $filename\nNazwa skryptu: $0\nData: $(date)" > $filename
     done
-elif [ "$1" == "--help" ]; then
+elif [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
     echo "Dostepne opcje:"
-    echo "--date           - wyswietla aktualna date"
-    echo "--logs [liczba]  - tworzy podana liczbe plikow log (domyslnie 100)"
-    echo "--help           - wyswietla te pomoc"
+    echo "--date, -d           - wyswietla aktualna date"
+    echo "--logs, -l [liczba]  - tworzy podana liczbe plikow log (domyslnie 100)"
+    echo "--help, -h           - wyswietla te pomoc"
 elif [ "$1" == "--init" ]; then
     git clone <URL_TWOJEGO_REPOZYTORIUM> .
     export PATH="$PATH:$(pwd)"
